@@ -6,10 +6,9 @@ import axios from "axios";
 import Likes from "./Sections/Likes";
 import "./Home.scss";
 
-const Home = ({ isAuth }) => {
+const Home = ({auth}) => {
   const [data, setData] = useState([]);
-
-  const userId = localStorage.getItem("userId");
+console.log(auth);
   useEffect(() => {
     axios
       .get("http://localhost:4000/")
@@ -40,9 +39,8 @@ const Home = ({ isAuth }) => {
       <div className="main-container mt-5">
         <h2 className="mb-4">Available Errands! </h2>
         <div id="errand-container" className="errand-container row ">
-          {!isAuth &&
-            data.map((e) => {
-              if (userId !== e.user_id) {
+          {data.map((e) => {
+              if (auth.userId !== e.user_id) {
                 return (
                   <div className="errand-card mb-3" key={e._id}>
                     <div className="card-image">
@@ -61,7 +59,7 @@ const Home = ({ isAuth }) => {
                       <p>Pickup At: {e.pickupLocation}</p>
                       <p>Deliver To: {e.deliveryLocation}</p>
                     </div>
-                    <Likes errandId={e._id} userId={userId} />
+                    <Likes errandId={e._id} userId={auth.userId} />
                   </div>
                 );
               }

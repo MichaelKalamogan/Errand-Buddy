@@ -6,10 +6,8 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 
 
-const Login = (props) => {
-
-
-  const [values, setValues] = useState({
+const Login = ({setAuth}) => {
+const [values, setValues] = useState({
       
     email: 'ben234@hotmail.com',
     password: 'asdasd',
@@ -33,12 +31,13 @@ const Login = (props) => {
         email: email,
         password: password,
       })
-    .then(data => { 
-      localStorage.setItem ('jwt', data.data.token)
-      localStorage.setItem('userId', data.data.userId )
-      localStorage.setItem('username', data.data.username )
-      console.log(data.data);
-      props.setAuth(true)
+    .then(res => { 
+      localStorage.setItem ('jwt', res.data.token)
+      // localStorage.setItem('userId', res.data.userId )
+      // localStorage.setItem('username', res.data.username )
+      console.log(res.data.username);
+      setAuth({username: res.data.username,userId: res.data.userId, 
+      isAuth:true})
 
       history.push('/')
       setValues({...values, email: '',
@@ -68,7 +67,6 @@ const Login = (props) => {
                 />
               </div>
               <div className="form-input">
-                
                 <i className="fa fa-lock"></i>
                 <input
                 onChange={handleChange
@@ -82,8 +80,6 @@ const Login = (props) => {
               <div className="form-check"> </div>
               <button  onClick={clickSubmit}className="btn btn-primary mt-4 signup">Login</button>
               <div className="d-flex justify-content-center mt-4">
-                
-               
               </div>
               <div className="text-center mt-4">
               <span>Forgot your password?</span>

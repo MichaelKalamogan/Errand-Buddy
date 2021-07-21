@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import PropTypes from 'prop-types';
@@ -15,7 +15,7 @@ import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import './Buddy_dashboard.scss'
+import './Dashboard.scss'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

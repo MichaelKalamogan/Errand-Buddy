@@ -8,24 +8,27 @@ import './SiteHeader.scss'
 
 
 
-const SiteHeader = (props) => {
-  const [bool,setBool]=useState(true)
+const SiteHeader = ({auth,setAuth}) => {
+
   const history =useHistory()
+  const [bool,setBool] =useState(true)
+  console.log(auth.username, auth.isAuth)
 
   const logout= (next)=>{
     localStorage.removeItem('jwt');
-    localStorage.removeItem('userId')
-    localStorage.removeItem('username')
+    // localStorage.removeItem('userId')
+    // localStorage.removeItem('username')
     // axios.get("http://localhost:4000/api/users/logout")
-    props.setAuth(false);
-    next()
-    setBool(prev => !bool)
+    setAuth({username: '',userId:'', 
+      isAuth:false});
+      next()
+      setBool(prev=> !bool)
   }
   return (
     <nav className="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
 
       <a className="navbar navbar-brand" href="/#">        
-      <Link to="/home">
+      <Link to="/">
         <img className="logo" src={process.env.PUBLIC_URL + '/Errand-Buddy-Logo.png'} alt="logo"/>
       </Link>
       </a>
@@ -44,17 +47,17 @@ const SiteHeader = (props) => {
       <div id="nav-links" className="navbar ">
         <ul>
           <li className="first-link">
-            <Link to="/Home" >
+            <Link to="/" >
               Home
             </Link>
           </li>
           <li className="other-links">
-            <Link to="/user/errand-request">
+            <Link to="/errand-request">
               Find a Buddy
             </Link>
           </li>
           <li className="other-links">
-            <Link to="/buddy/buddy-dashboard">
+            <Link to={`/${auth.userId}/dashboard`}>
               Your Dashboard
             </Link>
           </li>
@@ -64,23 +67,17 @@ const SiteHeader = (props) => {
       <div id="login-links">
         <ul>
           <li>
-            {(!props.isAuth && !localStorage.getItem("jwt")) ? (
-
+            {(!auth.isAuth && !localStorage.getItem('jwt'))? (
               <div className="nav-link" href="#">
-                
-                
                   <Link
                     to="/register"
-                  
                     href="/register"
                   >
                     <span className="fas fa-user"></span>
                     Sign up
                   </Link>
               </div>
-            ) : <strong className="nav-link authUser">Hello, { localStorage.getItem("username")}</strong>
-
-
+            ) : <strong className="nav-link authUser">Hello, {auth.username}</strong>
 }
         
           </li>
@@ -88,13 +85,13 @@ const SiteHeader = (props) => {
             <div className="nav-link" href="/#">
               
                
-              {(!props.isAuth && !localStorage.getItem("jwt")) ? (
+              {(!auth.isAuth && !localStorage.getItem('jwt')) ? (
                 <Link to="/login" className="navbar-link">
                   <span className="fas fa-sign-in-alt"></span>
                     Login            
                 </Link>
                 ) : (
-                <Link to="/" className="navbar-link" onClick={()=> logout(()=> history.push('/home'))}>
+                <Link to="/" className="navbar-link" onClick={()=> logout(()=> history.push('/'))}>
                     <span className="fas fa-sign-in-alt"></span>
                     Logout
                 </Link>)

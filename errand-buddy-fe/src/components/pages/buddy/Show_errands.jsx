@@ -30,7 +30,7 @@ const Show_errands = (props) =>
     } ).then(response =>
     {
       console.log(response)
-     history.push(`/buddy/buddy-dashboard`)
+     history.push(`/${props.location.state.e._id}/dashboard`)
      })
   
    }

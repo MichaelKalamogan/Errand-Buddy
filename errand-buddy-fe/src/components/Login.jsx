@@ -47,7 +47,7 @@ const Login = (props) => {
       console.log("errror",err)
     })
     
-  }
+      }
     
     return (
       <div className="container mt-5 mb-5">
@@ -86,7 +86,9 @@ const Login = (props) => {
               </div>
               <div className="text-center mt-4">
               <span>Forgot your password?</span>
-              <Link to={`/request-reset-password`}>Reset Password</Link>
+              <a href="/#" className="text-decoration-none">
+                Reset
+              </a>
             </div>
           </div>
         </div>

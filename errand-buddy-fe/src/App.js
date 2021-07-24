@@ -65,9 +65,8 @@ function App() {
           }
         />
         <Route path="/support" exact component={Support} />
-        <Route path="/request-reset-password" exact component={Request_reset_password} />
+        <Route path="/request-reset-password" exact component={Request_reset_password} />        
         
-        <Route path="/reset-password" exact component={ResetPassword} />
         <Route path="/stripe/payment" exact component={Payments} />
         <Route
           path="/dashboard/:id"
@@ -108,6 +107,7 @@ function App() {
         />
         <Route path="/user/payment" exact component={Payments} />
         <Route path="/edit-errand/:id" exact component={AddErrands} />
+        <Route path="/reset-password/:id/:token" exact component={ResetPassword} />
         {/* <Route path="/profile-update/:id" exact component={Register} /> */}
       </Switch>
       </div>

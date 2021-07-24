@@ -1,102 +1,112 @@
-import React, { useState } from 'react';
-import { Link, Redirect, useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect, useHistory, useParams } from "react-router-dom";
 import axios from 'axios';
 
-function ResetPassword(props) {
+function ResetPassword() {
 
-        //     const [values, setValues] = useState({
-        //         password: "",
-        //         password2: "",
-        //     });
+        const [values, setValues] = useState({
+                password: "",
+                password2: "",
+        });
 
-        // // const {id} 
+        const [verified, setVerified] = useState(false)
 
-        // // const history = useHistory();
+        //Getting the parameters
+        const { id, token } = useParams()
 
-        // const { password, password2 } = values;
+        const history = useHistory();
 
-        // const handleChange = (name) => (event) => {
-        //     setValues({ ...values, [name]: event.target.value });
-        // };
+        const { password, password2 } = values;
 
-        // const clickSubmit = (event) => {
-        //     event.preventDefault();
+        const handleChange = (name) => (event) => {
+            setValues({ ...values, [name]: event.target.value });
+        };
 
-        //     if(password !== password2) { 
-        //         alert('Passwords do not match') 
-        //         return
-        //     }
+        //Verify token first before loading reset password
+        useEffect(() => {
+                axios.post(`http://localhost:4000/api/users/reset-password/${id}/${token}`)
+                  .then((response) => {
+                    if(response.data.success) {
+                            setVerified(true)
+                    }
+                  });
+              }, []);
 
-        //     axios
-        //     .post("http://localhost:4000/api/users/reset-password/submit", {
+        //Submitting the password change
+        const clickSubmit = (event) => {
+            event.preventDefault();
 
-        //         id: email,
-        //         password: password,
-        //         password2: password2,
-        //     })
-        //     .then((response) => {
+            if(password !== password2) { 
+                alert('Passwords do not match') 
+                return
+            }
 
-        //         if (response.data.success) {
-        //             history.push("/login")
-        //         }
+            axios
+            .patch("http://localhost:4000/api/users/reset-password/submit", {
+
+                id: id,
+                password: password,
+            })
+            .then((response) => {
+
+                if (response.data.success) {
+                    history.push("/login")
+                }
                 
-        //     }).catch((error) => {
-        //         console.log('error')
-        //     })
+            }).catch((error) => {
+                console.log('error')
+            })
             
-        // };
+        };
 
-        // return (
-        //     <div className="container mt-5 mb-5">
-        //     <div className="row d-flex align-items-center justify-content-center">
-        //         <div className="add-container">
-        //             <h1 className="register-header mt-3">
-        //             Reset Password
-        //             </h1>            
-        //             <div className="outer registration mb-3">
-        //             <i className="fa fa-envelope"/>
-        //             <input
-        //                 type="email"
-        //                 className="input"
-        //                 value={email}
-        //                 placeholder="Email Address"
-        //             />
-        //             </div>
+        return (
+            <div className="container mt-5 mb-5">
+            <div className="row d-flex align-items-center justify-content-center">
+                { verified ? 
+                 (
+                        <div className="add-container">
+                        <h1 className="register-header mt-3">
+                        Reset Password
+                        </h1>            
 
-        //             <div className="outer registration mb-3">
-        //             <i className="fa fa-lock"></i>
-        //             <input
-        //                 onChange={handleChange("password")}
-        //                 type="password"
-        //                 className="input"
-        //                 value={password}
-        //                 placeholder="Password"
-        //             />
-        //             </div>
+                        <div className="outer registration mb-3">
+                        <i className="fa fa-lock"></i>
+                        <input
+                                onChange={handleChange("password")}
+                                type="password"
+                                className="input"
+                                value={password}
+                                placeholder="Password"
+                        />
+                        </div>
 
-        //             <div className="outer registration mb-3">
-        //             <i className="fa fa-lock"></i>
-        //             <input
-        //                 onChange={handleChange("password2")}
-        //                 type="password"
-        //                 className="input"
-        //                 value={password2}
-        //                 placeholder="Confirm Password"
-        //             />
-        //             </div>
-        //             <div className="register-button">
-        //             <button
-        //                 onClick={clickSubmit}
-        //                 className="btn btn-primary mt-4 signup"
-        //             >
-        //                 Reset Password
-        //             </button>
-        //             </div>
-                
-        //         </div>
-        //     </div>
-        //     </div>
-        // );
+                        <div className="outer registration mb-3">
+                        <i className="fa fa-lock"></i>
+                        <input
+                                onChange={handleChange("password2")}
+                                type="password"
+                                className="input"
+                                value={password2}
+                                placeholder="Confirm Password"
+                        />
+                        </div>
+                        <div className="register-button">
+                        <button
+                                onClick={clickSubmit}
+                                className="btn btn-primary mt-4 signup"
+                        >
+                                Reset Password
+                        </button>
+                        </div>
+                        
+                        </div>
+                 )
+                :
+                 null
+                }
+            </div>
+            </div>
+        );
     
 }
 

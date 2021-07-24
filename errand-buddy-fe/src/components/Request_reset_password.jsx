@@ -65,7 +65,7 @@ function Request_reset_password(props) {
                   </div>
                   { isLoading ? 
 
-                    null 
+                    <button onClick={clickSubmit} className="btn btn-primary btn-block" disabled>Submit<i class="fas fa-spinner fa-spin"></i> </button> 
                     : 
                     <button onClick={clickSubmit} className="btn btn-primary btn-block">Submit</button>
                   }

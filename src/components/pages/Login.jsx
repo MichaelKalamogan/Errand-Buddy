@@ -10,8 +10,8 @@ const Login = (props) => {
 
   const [values, setValues] = useState({
       
-    email: 'ben234@hotmail.com',
-    password: 'asdasd',
+    email: '',
+    password: '',
 
   })
 

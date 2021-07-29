@@ -50,7 +50,7 @@ const Home = () => {
 
   return (
     <div className="home-body">
-      <div className="home-headers"style={{padding: "10px 0"}}>
+      <div className="home-headers" style={{padding: "10px 0"}}>
         <h1>Stop rushing through your Day. We can make it simpler.</h1>
         <h1>Use Errand Buddy</h1>
       </div>

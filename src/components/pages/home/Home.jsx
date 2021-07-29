@@ -22,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get(`http://${process.env.REACT_APP_SERVER_URL}/`)
+      .get(`http://${process.env.REACT_APP_SERVER_URL}/errand-buddy`)
 
       .then(function (response) {
         // handle success

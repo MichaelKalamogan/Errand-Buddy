@@ -22,7 +22,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/")
+      .get(`http://${process.env.REACT_APP_SERVER_URL}/`)
 
       .then(function (response) {
         // handle success

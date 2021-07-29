@@ -116,7 +116,7 @@ function AddErrands(props) {
     ) {
       props.location.state?.data === undefined
         ? axios
-            .post("http://localhost:4000/api/users/create-errand", formData, {
+            .post(`http://${process.env.REACT_APP_SERVER_URL}/api/users/create-errand`, formData, {
               headers: {
                 "x-auth-token": localStorage.getItem("jwt"),
                 "Content-Type": "multipart/form-data",
@@ -130,7 +130,7 @@ function AddErrands(props) {
             })
         : axios
             .patch(
-              `http://localhost:4000/api/errands/${props.match.params.id}/update`,
+              `http://${process.env.REACT_APP_SERVER_URL}/api/errands/${props.match.params.id}/update`,
               formData,
               {
                 headers: {

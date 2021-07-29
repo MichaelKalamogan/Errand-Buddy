@@ -85,7 +85,7 @@ function Chat(props) {
             conversationId: currentChat._id
         }
 
-        axios.post('http://localhost:4000/api/chats/newmessage', {message})
+        axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/chats/newmessage`, {message})
         .then(res => {
             setMessages([...messages, res.data])
             setNewMessage("")
@@ -95,7 +95,7 @@ function Chat(props) {
     useEffect(() => {})
 
     useEffect(() => {
-      axios.get(`http://localhost:4000/api/chats/buyerconversations/` + user_name)
+      axios.get(`http://${process.env.REACT_APP_SERVER_URL}/api/chats/buyerconversations/` + user_name)
       .then(res => {
          console.log('buddy', res.data)
           setBuddyConversations(res.data)
@@ -106,7 +106,7 @@ function Chat(props) {
     }, [user_name])
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/chats/sellerconversations/` + user_name)
+        axios.get(`http://${process.env.REACT_APP_SERVER_URL}/api/chats/sellerconversations/` + user_name)
         .then(res => {
             console.log('seller', res.data)
             setSellerConversations(res.data)
@@ -120,7 +120,7 @@ function Chat(props) {
     useEffect(() => {
         
         if(currentChat) {        
-            axios.get('http://localhost:4000/api/chats/' + currentChat._id)
+            axios.get(`http://${process.env.REACT_APP_SERVER_URL}/api/chats/` + currentChat._id)
             .then(res => {
                 console.log(res.data)
                 setMessages(res.data)

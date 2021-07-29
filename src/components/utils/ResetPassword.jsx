@@ -24,7 +24,7 @@ function ResetPassword() {
 
         //Verify token first before loading reset password
         useEffect(() => {
-                axios.post(`http://localhost:4000/api/users/reset-password/${id}/${token}`)
+                axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/users/reset-password/${id}/${token}`)
                   .then((response) => {
                     if(response.data.success) {
                             setVerified(true)
@@ -42,7 +42,7 @@ function ResetPassword() {
             }
 
             axios
-            .patch("http://localhost:4000/api/users/reset-password/submit", {
+            .patch(`http://${process.env.REACT_APP_SERVER_URL}/api/users/reset-password/submit`, {
 
                 id: id,
                 password: password,

@@ -13,7 +13,6 @@ const SiteHeader = (props) => {
     localStorage.removeItem("jwt");
     localStorage.removeItem("userId");
     localStorage.removeItem("username");
-    // axios.get("http://localhost:4000/api/users/logout")
     props.setAuth(false);
     setLog(!log);
     next();

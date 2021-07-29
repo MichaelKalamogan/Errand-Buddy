@@ -28,7 +28,7 @@ function Request_reset_password(props) {
         setIsLoading(true)
         
         axios
-          .post("http://localhost:4000/api/users/forgot-password", {
+          .post(`http://${process.env.REACT_APP_SERVER_URL}/api/users/forgot-password`, {
             email: email,
           })
         .then(res => { 

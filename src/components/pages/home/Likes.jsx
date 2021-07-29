@@ -10,7 +10,7 @@ function Likes(props) {
 
     useEffect( () => {
 
-        Axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/like`, variable)
+        Axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/like`, variable)
         .then(response => {
             if(response.data.success) {
                 
@@ -37,7 +37,7 @@ function Likes(props) {
         
         if(LikeAction === null)  {
 
-            Axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/like/addLike`, variable)
+            Axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/like/addLike`, variable)
             .then(response => {
                 if (response.data.success) {
 
@@ -51,7 +51,7 @@ function Likes(props) {
 
         } else {
 
-            Axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/like/removeLike`, variable)
+            Axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/like/removeLike`, variable)
             .then(response => {
                 if (response.data.success) {
 

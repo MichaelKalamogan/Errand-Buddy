@@ -83,7 +83,7 @@ export default function Dashboard() {
   useEffect(() => {
     const userId = localStorage.getItem('userId')
 
-    axios.get(`http://${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/retrieveLikes`)
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/retrieveLikes`)
     .then(response => {
       setliked(response.data)
     })
@@ -127,7 +127,7 @@ export default function Dashboard() {
 
   const handleSubmit = (e) => {
        
-    axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/${ e }/completed`,{}, {
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e }/completed`,{}, {
      headers: {
        "x-auth-token": token,
        "content-type": "application/json"
@@ -149,7 +149,7 @@ export default function Dashboard() {
 
   const handleDelete=(e)=> {
 
-   axios.delete(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`, {
+   axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`, {
      headers: {
        "x-auth-token": token,
        "content-type": "application/json"
@@ -161,7 +161,7 @@ export default function Dashboard() {
   }
 
   const handleCancel = (e) => {
-    axios.delete(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/buddycancel`, {
+    axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/buddycancel`, {
       headers: {
         "x-auth-token": token,
     }
@@ -173,7 +173,7 @@ export default function Dashboard() {
  
  useEffect(() => {
    axios
-     .get(`http://${process.env.REACT_APP_SERVER_URL}/api/users/dashboard`, {
+     .get(`${process.env.REACT_APP_SERVER_URL}/api/users/dashboard`, {
        headers: {
          "x-auth-token": token,
          "content-type": "application/json",

@@ -55,7 +55,7 @@ const Payments = (props) => {
     const user_id = localStorage.getItem("userId");
     axios
       .post(
-        `http://${process.env.REACT_APP_SERVER_URL}/api/payment/create-checkout-session`,
+        `${process.env.REACT_APP_SERVER_URL}/api/payment/create-checkout-session`,
         { line_items, user_id, errandId },
         {
           headers: {

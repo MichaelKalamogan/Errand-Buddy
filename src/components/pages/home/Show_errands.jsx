@@ -23,7 +23,7 @@ const Show_errands = (props) =>
     
     const errandId = props.location.state.e._id
 
-    axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/${errandId }/accepted`,{}, {
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/${errandId }/accepted`,{}, {
      headers: {
        "x-auth-token": token,
        "content-type": "application/json"
@@ -45,7 +45,7 @@ const Show_errands = (props) =>
   useEffect(() => {
     // router.post('/:id/accepted', authenticated, errandController.accept)
     axios
-      .get(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/show/${props.location.state.e._id}`, {
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/errands/show/${props.location.state.e._id}`, {
         headers: {
           "x-auth-token": token,
           "content-type": "application/json",
@@ -67,7 +67,7 @@ const Show_errands = (props) =>
 
   function newChat() {
   
-    axios.post(`http://l${process.env.REACT_APP_SERVER_URL}api/chats/newconversation`, {
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/chats/newconversation`, {
 
       buyer: user_name,
       seller: props.location.state.e.username,

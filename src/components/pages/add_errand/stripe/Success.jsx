@@ -13,7 +13,7 @@ const Success = () => {
   useEffect(() => {
     axios
       .patch(
-        `http://${process.env.REACT_APP_SERVER_URL}/api/errands/successfulpayment`,
+        `${process.env.REACT_APP_SERVER_URL}/api/errands/successfulpayment`,
 
         {
           sessionId,

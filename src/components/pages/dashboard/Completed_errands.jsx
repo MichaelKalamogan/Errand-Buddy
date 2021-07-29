@@ -27,7 +27,7 @@ function Completed_errands()
   {
     const token = localStorage.getItem("jwt");
  // router.post('/:id/accepted', authenticated, errandController.accept)
-    axios.post(`http://${process.env.REACT_APP_SERVER_URL}/api/errands/${ errantID }/completed/review`,{rating: currentValue, review:feedback}, {
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ errantID }/completed/review`,{rating: currentValue, review:feedback}, {
      headers: {
        "x-auth-token": token,
        "content-type": "application/json"

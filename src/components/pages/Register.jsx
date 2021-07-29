@@ -25,7 +25,7 @@ const Register = () => {
   const clickSubmit = (event) => {
     event.preventDefault();
     axios
-      .post(`http://${process.env.REACT_APP_SERVER_URL}/api/users/register`, {
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/users/register`, {
         username: username,
         name: name,
         email: email,

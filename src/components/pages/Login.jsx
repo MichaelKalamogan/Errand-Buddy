@@ -28,7 +28,7 @@ const Login = (props) => {
     event.preventDefault()
     
     axios
-      .post(`http://${process.env.REACT_APP_SERVER_URL}/api/users/login`, {
+      .post(`${process.env.REACT_APP_SERVER_URL}/api/users/login`, {
         email: email,
         password: password,
       })

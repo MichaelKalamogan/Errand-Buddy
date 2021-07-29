@@ -32,9 +32,6 @@ const Home = () => {
         // handle error
         console.log(error);
       })
-      .then(function () {
-        // always executed
-      });
   }, []);
 
   useEffect(() => {

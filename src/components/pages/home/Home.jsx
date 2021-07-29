@@ -34,17 +34,6 @@ const Home = () => {
       })
   }, []);
 
-  useEffect(() => {
-    console.log(data, "filter");
-    console.log(sortedField);
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log(e.target.select.value);
-  };
-
   return (
     <div className="home-body">
       <div className="home-headers" style={{padding: "10px 0"}}>

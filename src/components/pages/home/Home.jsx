@@ -49,18 +49,10 @@ const Home = () => {
   };
 
   return (
-    <div
-      className="home-body"
-      style={{
-        backgroundImage: `url(${
-          process.env.PUBLIC_URL + "/home-background.jpg"
-        })`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="home-headers">
-        <h1>Errand Buddy</h1>
+    <div className="home-body">
+      <div className="home-headers"style={{padding: "10px 0"}}>
+        <h1>Stop rushing through your Day. We can make it simpler.</h1>
+        <h1>Use Errand Buddy</h1>
       </div>
       <div className="main-container mt-5">
         <h2 className="mb-4">Available Errands! </h2>

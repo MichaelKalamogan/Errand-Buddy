@@ -1,17 +1,14 @@
 import React, { Component, useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useHistory,useParams } from "react-router-dom";
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import { Tabs, Tab, AppBar } from '@material-ui/core';
-import PhoneIcon from '@material-ui/icons/Phone';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import HourglassEmptyIcon from '@material-ui/icons/HourglassEmpty';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import '../../../style/Dashboard.scss'

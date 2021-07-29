@@ -8,7 +8,6 @@ import Login from "./components/pages/Login";
  
 //Buddy Components
 import SiteHeader from "./components/utils/SiteHeader";
-import SiteFooter from "./components/utils/SiteFooter";
 import ShowErrands from "./components/pages/home/Show_errands";
 import CompletedErrands from "./components/pages/dashboard/Completed_errands";
 import Dashboard from "./components/pages/dashboard/Dashboard";

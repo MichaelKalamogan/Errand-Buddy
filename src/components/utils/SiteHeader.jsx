@@ -18,7 +18,7 @@ const SiteHeader = (props) => {
     next();
   };
   return (
-    <nav className="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+    <nav className="navbar navbar-expand-md bg-white navbar sticky-top">
       <Link to="/">
         <img
           className="logo"

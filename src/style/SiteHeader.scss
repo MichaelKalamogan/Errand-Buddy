@@ -7,7 +7,7 @@
      }
      
      a {
-          color:white;
+          color:black;
           text-decoration: none;
           width: 250px;
      }
@@ -23,7 +23,7 @@
 .nav-link {
      
      .fas {
-          color:white;
+          color:black;
           text-decoration: none;
      }
 }
@@ -32,7 +32,6 @@
 
      margin: auto;
      justify-content: center;
-     font-family: 'Zen Tokyo Zoo', cursive, sans-serif;
 
      ul li{
           font-size: 1.5em;
@@ -47,7 +46,7 @@
      }
 
      .other-links:hover, .first-link:hover{
-          background-color:rgb(50,50,50);
+          background-color:rgb(240, 240, 240);
           text-decoration: none;
      }
 }
@@ -63,8 +62,7 @@
      }
 
      .authUser {
-          color: white;
-          font-family: 'Zen Tokyo Zoo', cursive, sans-serif;
+          color: black;
      }
 
 }

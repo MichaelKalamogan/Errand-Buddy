@@ -5,9 +5,14 @@
   }
 
 .accept-button {
+    
     width: fit-content;
-    border-radius: 5px;
-    margin-top: 10px;
+    border: 1px solid #94C2ED;
+    background-color: white;
+    margin: auto;
+    border-radius: 3px;
+    color: blue;
+    padding: 10px 20px;
 }
 
 .show-container {

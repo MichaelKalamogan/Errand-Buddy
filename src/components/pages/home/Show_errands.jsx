@@ -195,17 +195,16 @@ const Show_errands = (props) =>
 
                 <div className="dotted-lines"></div>         
               { props.location.state.e.status === 'Completed' ? null : 
-                  <button className="btn btn-outline-primary accept-button" mt-2 mb-2>
+                  <div>
                   {isAuthenticated() &&  (
-                      <button onClick= {handleSubmit}> Accept
-                  </button>
+                      <button className="accept-button" onClick= {handleSubmit}> Accept</button>
                   )}
                   {!isAuthenticated() && (
                     <Link to={`/login`} className="navbar-item" href="">
-                      Login to accept
+                      <button className="accept-button">Login to accept</button>
                     </Link>
                   )}
-                </button>
+                </div>
                 
                 }
 

@@ -41,7 +41,10 @@ const Home = () => {
           <h1>Stop <span>rushing</span> through your Day. We can make it simpler.</h1>
           <h1>Use Errand Buddy</h1>
         </div>
+      </div>
 
+      <div className="home-banner-picture">
+          <img src={process.env.PUBLIC_URL + "/home-banner.png"} alt="homebanner"/>
       </div>
       <div className="main-container mt-5">
         <div className='sorting'>

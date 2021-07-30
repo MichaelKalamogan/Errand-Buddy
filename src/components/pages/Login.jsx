@@ -86,9 +86,9 @@ const Login = (props) => {
               <div className="form-check"> </div>
 
               { isLoading ? 
-              <button  onClick={clickSubmit}className="btn btn-primary mt-4 login-btn" disabled>Login<i class="fas fa-spinner fa-spin"></i></button>
+              <button  onClick={clickSubmit}className=" login-btn" disabled>Login<i class="fas fa-spinner fa-spin"></i></button>
               :
-              <button  onClick={clickSubmit}className="btn btn-primary mt-4 login-btn">Login</button>
+              <button  onClick={clickSubmit}className="login-btn">Login</button>
               
               }
               <div className="d-flex justify-content-center mt-4">

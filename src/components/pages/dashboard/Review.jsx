@@ -28,8 +28,6 @@ function UserReview({reviews, displayReviews}) {
 
   return (
     <div style={styles.container}>
-      <Layout title="Thanks User!" description=""></Layout>
-
       <h2> Please rate your experience </h2>
       <div style={styles.stars}>
         {stars.map((_, index) => {

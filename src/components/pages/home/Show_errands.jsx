@@ -1,7 +1,6 @@
 import React, { useState, useEffect  } from "react";
 import { Link,  useHistory } from "react-router-dom";
-import { Redirect } from "react-router";
-
+import { useParams } from "react-router-dom";
 import { isAuthenticated } from "../../utils/Auth";
 import axios from "axios";
 import Google from "../../googleMaps/Google_map";
@@ -16,7 +15,6 @@ const Show_errands = (props) =>
   const token = localStorage.getItem("jwt");
   const userId = localStorage.getItem("userId");
   const user_name = localStorage.getItem('username')
-
 
   const handleSubmit = () =>
   {

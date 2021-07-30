@@ -77,7 +77,7 @@ export default function Dashboard() {
 
     axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/retrieveLikes`)
     .then(response => {
-
+      console.log(response.data)
       setliked(response.data)
     })
   }, ([]))
@@ -372,9 +372,14 @@ export default function Dashboard() {
           
           {
             liked.length>0 ? 
-              liked.map((e,i) => (   
-                
-                <div className="inner-card mb-3" key={i}>
+              liked.map((e) => (    
+                <div className="inner-card mb-3" key={e.errandId._id}>
+                  <Link
+                      to={{ pathname: `/${e.errandId._id}`, state: { e: e.errandId } }}
+                      className=""
+                      href=""
+                      style={{ textDecoration: 'none'}}
+                    >
                   <div className="card-image">
                     <img src={e.errandId.image} alt="Item" />
                   </div>
@@ -384,6 +389,7 @@ export default function Dashboard() {
                     <h6>Items'Price: ${e.errandId.itemPrice}</h6>
                     <h6>{e.errandId.status}</h6>
                   </div>
+                  </Link>
                 </div>
             ))              
               :         

@@ -201,9 +201,11 @@ function AddErrands(props) {
           required
         >
           <option defaultValue> Select Categories</option>
-          <option value="Grocery">Grocery</option>
+          <option value="Grocery">Grocery Pick Up</option>
           <option value="Queue">Queue</option>
-          <option value="Pet-Sitting">Pet-sit</option>
+          <option value="Pet-Sitting">Pet Sitting Services</option>
+          <option value="Nanny Services">Nanny Services</option>
+          <option value="Housekeeping">Housekeeping</option>
           <option value="Others">Others</option>
         </select>
 

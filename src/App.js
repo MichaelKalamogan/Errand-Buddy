@@ -37,14 +37,7 @@ function App() {
     setReviews([...reviews, latestReview]);
   };
 
-  useEffect(() => {
-    console.log(isAuth)
-  })
 
-  // const id = localStorage.getItem("jwt");
-  // // const {id} = localStorage;
-  // console.log(id, "localstorage userID");
-  // const {userID} = useParams();
 
   return (
     <div className="App">

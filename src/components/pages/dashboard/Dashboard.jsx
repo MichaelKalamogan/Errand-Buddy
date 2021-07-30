@@ -77,6 +77,7 @@ export default function Dashboard() {
 
     axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/retrieveLikes`)
     .then(response => {
+
       setliked(response.data)
     })
   }, ([]))
@@ -84,6 +85,7 @@ export default function Dashboard() {
   const {id} = useParams()
   const history = useHistory()
   const token = localStorage.getItem("jwt");
+
   const [bool, setBool]= useState(true)
   const [user, setUser] = useState({
     user: {
@@ -141,7 +143,7 @@ export default function Dashboard() {
 
   const handleDelete=(e)=> {
 
-   axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`, {
+   axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`,{}, {
      headers: {
        "x-auth-token": token,
        "content-type": "application/json"
@@ -153,10 +155,12 @@ export default function Dashboard() {
   }
 
   const handleCancel = (e) => {
-    axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/buddycancel`, {
+
+    axios.post(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/buddycancel`, {}, {
       headers: {
         "x-auth-token": token,
-    }
+        "content-type": "application/json"
+      }
     }).then(response => {
       setBool(!bool);
     });
@@ -172,6 +176,7 @@ export default function Dashboard() {
        },
      })
      .then((response) => {
+
        setUser(response.data);
      });
  }, [bool]);

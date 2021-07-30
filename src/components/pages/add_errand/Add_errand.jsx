@@ -100,7 +100,7 @@ function AddErrands(props) {
     event.preventDefault();
 
     setIsLoading(true);
-    console.log(isLoading);
+
 
     let formData = new FormData();
     formData.append("items", data.items);

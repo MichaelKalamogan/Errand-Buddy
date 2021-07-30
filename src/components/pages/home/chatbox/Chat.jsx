@@ -97,7 +97,7 @@ function Chat(props) {
     useEffect(() => {
       axios.get(`${process.env.REACT_APP_SERVER_URL}/api/chats/buyerconversations/` + user_name)
       .then(res => {
-         console.log('buddy', res.data)
+
           setBuddyConversations(res.data)
       })
       .catch((error) => {
@@ -108,7 +108,7 @@ function Chat(props) {
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_SERVER_URL}/api/chats/sellerconversations/` + user_name)
         .then(res => {
-            console.log('seller', res.data)
+
             setSellerConversations(res.data)
 
         })

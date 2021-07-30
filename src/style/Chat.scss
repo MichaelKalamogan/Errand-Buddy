@@ -1,3 +1,10 @@
+.chat-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
 .chat {
     display: flex;
     overflow-y: scroll;
@@ -91,21 +98,32 @@
     }
 
     .chatBoxBottom {
-        margin-top: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-top: 15px;       
+        padding:30px;
 
         .chatInput {
-            width: 70%;
-            margin-right: 10px;
+            width: 100%;
+            border: none;
+            padding: 10px 20px;
+            font: 14px/22px "Lato", Arial, sans-serif;
+            margin-bottom: 10px;
             border-radius: 5px;
+            resize: none;
         }
 
         .chatSubmit {
-            border-radius: 5px;
-            background-color: burlywood;
-            color: black;
+            float: right;
+            color: #94C2ED;
+            font-size: 16px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            background: #F2F5F8;
+
+            &:hover {
+                color: darken(#94C2ED, 20%);
+              }
         }
     }
 
@@ -118,6 +136,15 @@
         font-size: 24px;
         color: lightgrey;
         text-align: center;
+    }
+}
+
+.chat-picture {
+    width:30%;
+    margin: auto 30px auto 0;
+
+    img {
+        width:100%;
     }
 }
 

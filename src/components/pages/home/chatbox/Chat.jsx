@@ -94,8 +94,6 @@ function Chat(props) {
         })
     }
 
-    useEffect(() => {})
-
     useEffect(() => {
       axios.get(`${process.env.REACT_APP_SERVER_URL}/api/chats/buyerconversations/` + user_name)
       .then(res => {
@@ -112,7 +110,6 @@ function Chat(props) {
         .then(res => {
 
             setSellerConversations(res.data)
-            console.log(res.data)
 
         })
         .catch((error) => {
@@ -146,12 +143,15 @@ function Chat(props) {
     };
 
     return (
-        
-        <div className="chat">
+        <div className="chat-container">
+            <div className="chat-picture">
+                <img src={process.env.PUBLIC_URL + "/chat.jpg"} alt="chat"/>
+            </div>
+            <div className="chat">
             <div className="errand-chats">
                 <div className="search-chat">
                     <input type="text" placeholder="Search Chats" onChange={e => {setSearchField(e.target.value)}}/>
-                    <i class="fa fa-search"></i>
+
                 </div>
                 <div className="conversationsBox">
 
@@ -216,6 +216,7 @@ function Chat(props) {
                                 placeholder="Type Here" 
                                 onChange={e => setNewMessage(e.target.value)}
                                 value={newMessage}
+                                rows="3"
                             >
                             </textarea>
                             { newMessage.trim() === "" ? 
@@ -235,6 +236,10 @@ function Chat(props) {
                 
             
         </div>
+
+
+        </div>
+        
     );
 }
 

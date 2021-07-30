@@ -1,14 +1,13 @@
 .conversation {
     display: flex;
+    width: 90%;
     align-items: center;
     padding: 10px;
     margin-top: 20px;
     border-bottom: 1px solid lightgray;
+    cursor: pointer;
 }
 
-.conversation:hover {
-    background-color: lightgray;
-}
 
 .conversation-image {
     width: 40px;
@@ -20,4 +19,6 @@
 
 .conversation-name{
     font-weight: 500;
+    text-align: left;
+    color:white;
 }

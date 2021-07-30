@@ -22,8 +22,14 @@ const Register = () => {
     setValues({ ...values, [name]: event.target.value });
   };
 
+  //Loading state; loading a spinner to render conditionally
+  const [isLoading, setIsLoading] = useState(false) 
+
   const clickSubmit = (event) => {
     event.preventDefault();
+
+    setIsLoading(true)
+
     axios
       .post(`${process.env.REACT_APP_SERVER_URL}/api/users/register`, {
         username: username,
@@ -36,7 +42,9 @@ const Register = () => {
         history.push("/login");
       }).catch((error) => {
         console.log('error')
-      })
+      }).finally (() => {
+          setIsLoading(false)
+        })
     
   };
 
@@ -102,12 +110,19 @@ const Register = () => {
               />
             </div>
             <div className="register-button">
+            { isLoading ? 
               <button
                 onClick={clickSubmit}
                 className="btn btn-primary mt-4 signup"
-              >
-                Join us now
+              > Join us now<i class="fas fa-spinner fa-spin"></i>
               </button>
+              :
+              <button
+                onClick={clickSubmit}
+                className="btn btn-primary mt-4 signup"
+              >Join us now</button>
+            
+            }
             </div>
 
 

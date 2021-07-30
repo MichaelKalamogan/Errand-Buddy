@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Layout from "../utils/Layout";
 import axios from "axios";
 
 
@@ -24,9 +23,14 @@ const Login = (props) => {
 
   }
 
+  //Loading state; loading a spinner to render conditionally
+  const [isLoading, setIsLoading] = useState(false)
+
   const clickSubmit = (event) => { 
     event.preventDefault()
-    
+
+    setIsLoading(true)
+
     axios
       .post(`${process.env.REACT_APP_SERVER_URL}/api/users/login`, {
         email: email,
@@ -44,13 +48,14 @@ const Login = (props) => {
     })
     .catch(err => {
       console.log("errror",err)
+    }).finally (() => {
+      setIsLoading(false)
     })
     
   }
     
     return (
       <div className="container mt-5 mb-5">
-        <Layout title="Welcome back Buddy!" description="  "></Layout>
         <div className="row d-flex align-items-center justify-content-center">
           <div className="col-md-6">
             <div className="card px-5 py-5">
@@ -78,7 +83,13 @@ const Login = (props) => {
                 />
               </div>
               <div className="form-check"> </div>
+
+              { isLoading ? 
+              <button  onClick={clickSubmit}className="btn btn-primary mt-4 signup" disabled>Login<i class="fas fa-spinner fa-spin"></i></button>
+              :
               <button  onClick={clickSubmit}className="btn btn-primary mt-4 signup">Login</button>
+              
+              }
               <div className="d-flex justify-content-center mt-4">
                 
                

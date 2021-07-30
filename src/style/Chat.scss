@@ -3,54 +3,88 @@
     overflow-y: scroll;
     height: 100%;
     justify-content: center;
+    margin-top: 50px;
     
+
     .errand-chats {
-        width: 30%;
-        height: 80%;
+        width: 400px;
+        background-color:#6A6C75;
+        height: 100%;
+        overflow-y: scroll;
         display: flex;
         flex-direction: column;
-
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 80vh;
         color: black;
-
+        
         .conversationBox {
             margin: 0 auto;
         }
 
         .search-chat {
-            width: 70%;
+            width: 40%;
             padding: 10px 0;
             margin: 20px auto;
-            text-align: center;
             border: none;
-            border-bottom: 1px solid lightgray;
-            float:left;
+            float:left;          
 
-            &:hover {
-                border-bottom-color: #58c791;
+            input {
+                
+                border-radius: 3px;
+                border: none;
+                padding: 14px;
+                color: white;
+                background: #92959E;
+                width: 90%;
+                font-size: 14px;
             }
+
+            .fa-search {
+                position: relative;
+                left: -25px;
+              }
+            
         }
 
    
     }
 
     .main-chat {
-        width: 60%;
-        height: 80%;
-        margin-left: 20px;
-        border-left: 1px solid #3ca0e7;
+        width: 600px;
+        height: 100%;
+        background-color: #F2F5F8;
+        height: 80vh;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
     }
 
     .main-wrapper {
         display: flex;
         flex-direction: column;
-        max-height: 90%;        
+        max-height: 90%;    
+        
+        .chat-about {
+            float: left;
+            padding-left: 10px;
+            margin-top: 6px;
+            border-bottom: 1px inset lightgray;
+          }
+          
+          .chat-with {
+            font-weight: bold;
+            font-size: 16px;
+          }
+          
+          .chat-num-messages {
+            color: #92959E;
+          }
     }
 
     .chatBoxTop {
         overflow-y: scroll;
         height: 500px;
-        width: 80%;
-        border: 2px solid Grey;
+        width: 100%;
         margin: 20px auto;
         border-radius: 5px;
         

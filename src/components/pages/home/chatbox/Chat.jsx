@@ -46,8 +46,9 @@ function a11yProps(index) {
   
 const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: "#6A6C75",
       width: "fit-content",
+
     },
 }));
 
@@ -58,7 +59,8 @@ function Chat(props) {
     const [currentChat, setCurrentChat] = useState(null)
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
-    const [searchField, setSearchField] = useState("")  
+    const [searchField, setSearchField] = useState("")
+    const [friend, setFriend] = useState("")
 
     const user_name = localStorage.getItem('username')
 
@@ -110,6 +112,7 @@ function Chat(props) {
         .then(res => {
 
             setSellerConversations(res.data)
+            console.log(res.data)
 
         })
         .catch((error) => {
@@ -130,7 +133,6 @@ function Chat(props) {
     }, [currentChat])
 
     //Material-UI for tabs
-
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
@@ -147,8 +149,12 @@ function Chat(props) {
         
         <div className="chat">
             <div className="errand-chats">
-                <input className="search-chat" placeholder="Search Chats" onChange={e => {setSearchField(e.target.value)}}/>
+                <div className="search-chat">
+                    <input type="text" placeholder="Search Chats" onChange={e => {setSearchField(e.target.value)}}/>
+                    <i class="fa fa-search"></i>
+                </div>
                 <div className="conversationsBox">
+
                 <div className={classes.root} style={{margin: "0 auto"}}>
                     <AppBar position="static" color="default">
                         <Tabs
@@ -169,7 +175,7 @@ function Chat(props) {
                     >   
                         <TabPanel className="chat-tab" value={value} index={0} dir={theme.direction}>
                             {sellerChats.map((item)=> (
-                                <div onClick={() => setCurrentChat(item)}>
+                                <div onClick={() => {setCurrentChat(item); setFriend(item.buyer)}}>
                                     <Conversation conversation={item} currentUser={user_name}/>
                                 </div>
                             ))}   
@@ -177,7 +183,7 @@ function Chat(props) {
                         
                         <TabPanel value={value} index={1} dir={theme.direction}>
                             {buyerChats.map((item)=> (
-                                <div onClick={() => setCurrentChat(item)}>
+                                <div onClick={() => {setCurrentChat(item); setFriend(item.seller)}}>
                                     <Conversation conversation={item} currentUser={user_name}/>
                                 </div>
                             ))}
@@ -194,7 +200,11 @@ function Chat(props) {
                     {                     
                         currentChat ? 
                         (
-                        <>                        
+                        <>  
+                        <div class="chat-about">
+                            <div class="chat-with">Chat with {friend}</div>
+                            <div class="chat-num-messages">{messages.length} messages</div>
+                        </div>                      
                         <div className="chatBoxTop">
                             {messages.map(msg => (
                                 <Message message={msg} own={msg.sender === user_name}/>

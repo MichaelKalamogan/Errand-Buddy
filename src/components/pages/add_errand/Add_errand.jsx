@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import DateFnsUtils from "@date-io/date-fns";
 import axios from "axios";
 import "../../../style/Add_errand.scss";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 
@@ -30,6 +32,18 @@ function AddErrands(props) {
 
   const [pickupDate, setPickupDate] = useState(new Date());
   const [deliveryDate, setDeliveryDate] = useState(new Date());
+
+  const useStyles = makeStyles((theme) => ({
+    container: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: 200,
+    },
+  }));
 
   useEffect(() => {
     setData({
@@ -111,8 +125,7 @@ function AddErrands(props) {
       data.itemPrice &&
       data.errandFee &&
       pickupDate &&
-      deliveryDate &&
-      image.newImage
+      deliveryDate
     ) {
       props.location.state?.data === undefined
         ? axios
@@ -195,6 +208,7 @@ function AddErrands(props) {
         </select>
 
         <div className="outer mb-3">
+          
           <input
             onChange={handleChange}
             required
@@ -204,10 +218,12 @@ function AddErrands(props) {
             name="items"
             value={data.items}
             placeholder="Summary of Errand"
+            
           />
         </div>
 
       <div className="outer mb-3">
+        <label for="image" class="btn">Upload an Image of the Item/Errand</label>
           <input
             onChange={uploadImage}
             required
@@ -215,7 +231,7 @@ function AddErrands(props) {
             id="image"
             type="file"
             name="newImage"
-            placeholder="Upload an image"
+            placeholder="Upload an image of the item/errand"
           />
         </div>
         <div className="outer textbox mb-3">

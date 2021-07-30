@@ -4,9 +4,17 @@
         text-align: center;
         background-color: black;
 
-        h1, h3 {
-            margin: 0 auto;
-            color: white;
+        .header-banner {
+
+            h1{
+                font-weight: 200;
+                margin: 0 auto;
+                color: white;
+                span {
+                    font-style: italic;
+                }
+            }
+
         }
     }
 }

@@ -37,8 +37,11 @@ const Home = () => {
   return (
     <div className="home-body">
       <div className="home-headers" style={{padding: "10px 0"}}>
-        <h1>Stop rushing through your Day. We can make it simpler.</h1>
-        <h1>Use Errand Buddy</h1>
+        <div className="header-banner">
+          <h1>Stop <span>rushing</span> through your Day. We can make it simpler.</h1>
+          <h1>Use Errand Buddy</h1>
+        </div>
+
       </div>
       <div className="main-container mt-5">
         <h2 className="mb-4">Available Errands! </h2>

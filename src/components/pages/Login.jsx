@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
+import '../../style/Login.scss'
 
 
 const Login = (props) => {
@@ -60,8 +61,8 @@ const Login = (props) => {
           <div className="col-md-6">
             <div className="card px-5 py-5">
               <h1>Errand Buddy</h1>
-              <div className="form-input">
-                <i className="fa fa-user"></i>
+              <div className="email-input">
+                
                 <input
                 onChange={handleChange("email")}
                   type="text"
@@ -69,10 +70,9 @@ const Login = (props) => {
                   value={email}
                   placeholder="Email address"
                 />
+                <i className="fa fa-user"></i>
               </div>
-              <div className="form-input">
-                
-                <i className="fa fa-lock"></i>
+              <div className="password-input">
                 <input
                 onChange={handleChange
                 ("password")}
@@ -81,13 +81,14 @@ const Login = (props) => {
                   value={password}
                   placeholder="password"
                 />
+                <i className="fa fa-lock"></i>
               </div>
               <div className="form-check"> </div>
 
               { isLoading ? 
-              <button  onClick={clickSubmit}className="btn btn-primary mt-4 signup" disabled>Login<i class="fas fa-spinner fa-spin"></i></button>
+              <button  onClick={clickSubmit}className="btn btn-primary mt-4 login-btn" disabled>Login<i class="fas fa-spinner fa-spin"></i></button>
               :
-              <button  onClick={clickSubmit}className="btn btn-primary mt-4 signup">Login</button>
+              <button  onClick={clickSubmit}className="btn btn-primary mt-4 login-btn">Login</button>
               
               }
               <div className="d-flex justify-content-center mt-4">
@@ -95,9 +96,13 @@ const Login = (props) => {
                
               </div>
               <div className="text-center mt-4">
-              <span>Forgot your password?</span>
-              <Link to={`/request-reset-password`}>Reset Password</Link>
-            </div>
+                <span>Forgot your password?</span>
+                <Link to={`/request-reset-password`}> Reset Password</Link>
+              </div>
+              <div className="text-center mt-4">
+                <span>No Account? </span>
+                <Link to={`/register`}> Sign Up Now!</Link>
+              </div>
           </div>
         </div>
       </div>

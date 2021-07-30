@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-// import { isAuthenticated } from "../../auth";
+import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import DateFnsUtils from "@date-io/date-fns";
 import axios from "axios";
 import "../../../style/Add_errand.scss";
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 
 import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 

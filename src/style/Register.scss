@@ -1,7 +1,11 @@
+.register{
+    width: 600px;
+}
+
 .registration {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     justify-content: center;
 
     input {

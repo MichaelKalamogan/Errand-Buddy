@@ -44,30 +44,32 @@ const Home = () => {
 
       </div>
       <div className="main-container mt-5">
-        <h2 className="mb-4">Available Errands! </h2>
-        <input
-          name="input"
-          value={searchField}
-          type="search"
-          placeholder="Search the Errands"
-          onChange={(e) => {
-            setSearchField(e.target.value);
-          }}
-        />
-        <select
-          class="form-select form-select-lg mb-3"
-          aria-label=".form-select-lg example"
-          name="select"
-          onChange={(e) => setSortedField(e.target.value)}
-        >
-          <option defaultValue value="items">
-            {" "}
-            Items{" "}
-          </option>
-          {/* <option value="errandFee">Errand Fee</option> */}
-          <option value="username">User Name</option>
-          {/* <option value="itemPrice">Item Price</option> */}
-        </select>
+        <div className='sorting'>
+          <input
+            name="input"
+            value={searchField}
+            type="search"
+            placeholder="Search the Errands"
+            onChange={(e) => {
+              setSearchField(e.target.value);
+            }}
+          />
+          <select
+            class="form-select form-select-lg mb-3"
+            aria-label=".form-select-lg example"
+            name="select"
+            onChange={(e) => setSortedField(e.target.value)}
+          >
+            <option defaultValue value="items">
+              {" "}
+              Items{" "}
+            </option>
+            {/* <option value="errandFee">Errand Fee</option> */}
+            <option value="username">User Name</option>
+            {/* <option value="itemPrice">Item Price</option> */}
+          </select>
+        </div>
+
 
         <div id="errand-container" className="errand-container row ">
           {filteredErrands.map((e) => {

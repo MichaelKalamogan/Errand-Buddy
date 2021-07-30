@@ -18,6 +18,32 @@
         }
     }
 }
+
+.sorting {
+    width: fit-content;
+    margin: 10px auto 20px auto;
+
+    input {
+        padding: 10px;
+        border: none;
+        border-bottom: 2px solid #ebebeb;
+
+        &:focus {
+            outline: none;
+            border-bottom-color: #58c791;
+        }
+
+        &:hover {
+            border-bottom-color: #58c791;
+        }
+    }
+
+    select {
+        border: none;
+        padding: 10px;
+    }
+}
+
 #errand-container {
     display: flex;
     justify-content: center;
@@ -90,19 +116,47 @@ h2{
     margin: 15px 25px 0 0 ;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1025px){
 
     .main-container {
-        width: 90vw;
-        margin: auto;
+        width: 100vw;
+        margin: auto 0;
+    }
+
+    #errand-container {
+        width: 100%;
     }
 
     .errand-card {
-        width: 20%;
+
+        min-width: 250px;
     }
 
     .item-details {
         font-size: 1em;
+    }
+
+}
+
+@media screen and (max-width: 805px){
+    
+    .header-banner {
+        font-size: 0.8em;
+    }
+
+}
+
+@media screen and (max-width: 650px){
+    .header-banner {
+        font-size: 0.7em;
+    }
+
+
+}
+
+@media screen and (max-width: 375px){
+    .header-banner {
+        font-size: 0.5em;
     }
 
 }

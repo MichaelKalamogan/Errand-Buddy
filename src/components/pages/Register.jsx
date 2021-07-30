@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Layout from "../utils/Layout";
 import axios from "axios";
 import '../../style/Register.scss'
 
@@ -49,16 +48,13 @@ const Register = () => {
   };
 
   return (
-    <div className="container mt-5 mb-5">
-      <Layout title="Welcome to Errand Buddy!" description="  "></Layout>
+    <div className="register container mt-5 mb-5">
       <div className=" row d-flex align-items-center justify-content-center">
         <div className="add-container">
             <h1 className="register-header mt-3">
               Join Errand Buddy! 
             </h1>
-            <h6 className="register-header  mt-1">Take A Break or Help Perform an Errand</h6>
-            
-            <div className="outer registration mb-3">
+             <div className="outer registration mb-3">
               <i className="fa fa-envelope"/>
               <input
                 onChange={handleChange("email")}
@@ -127,7 +123,7 @@ const Register = () => {
 
 
             <div className="text-center mt-4">
-              <span>Already a member?</span>
+              <span>Already a member?  </span>
               <a href="/login" className="text-decoration-none">
                 Login
               </a>

@@ -74,7 +74,7 @@ const Home = () => {
           }}
         />
         <select
-          class="form-select form-select-lg mb-3"
+          className="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
           name="select"
           onChange={(e) => setSortedField(e.target.value)}

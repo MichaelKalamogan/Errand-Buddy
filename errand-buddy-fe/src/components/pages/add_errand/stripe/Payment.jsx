@@ -68,6 +68,8 @@ const Payments = (props) => {
       .then((res) => {
         const { sessionId } = res.data;
 
+        console.log(stripe)
+
         const { error } = stripe.redirectToCheckout({
           sessionId,
         });

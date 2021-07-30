@@ -66,6 +66,7 @@ function App() {
             userId ? <AddErrands {...props} /> : <Redirect to="/login" />
           }
         />
+          <Route path="/:id" exact component={ShowErrands} />
         <Route path="/support" exact component={Support} />
         <Route path="/request-reset-password" exact component={Request_reset_password} />
         
@@ -93,9 +94,9 @@ function App() {
         />
         <Route path="/stripe/success" exact component={Success} />
         
-        <Route path="/:id" exact component={ShowErrands} />
         <Route
           path="/:errantID/completed-errands"
+          exact
           render={() => <CompletedErrands />}
         />
 

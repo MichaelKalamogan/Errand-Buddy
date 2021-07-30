@@ -87,7 +87,7 @@ function AddErrands(props) {
     event.preventDefault();
 
     setIsLoading(true);
-    console.log(isLoading);
+    // console.log(isLoading);
 
     let formData = new FormData();
     formData.append("items", data.items);
@@ -311,7 +311,7 @@ function AddErrands(props) {
           <button onClick={handleClick} className="inputButton" disabled>
             {" "}
             {!props.location.state ? "Add Errand" : "Modify Details"}
-            <i class="fas fa-spinner fa-spin"></i>
+            <i className="fas fa-spinner fa-spin"></i>
           </button>
         ) : (
           <button onClick={handleClick} className="inputButton">

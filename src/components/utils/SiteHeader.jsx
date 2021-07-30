@@ -17,6 +17,7 @@ const SiteHeader = (props) => {
     setLog(!log);
     next();
   };
+  
   return (
     <nav className="navbar navbar-expand-md bg-white navbar sticky-top">
       <Link to="/">
@@ -52,7 +53,7 @@ const SiteHeader = (props) => {
             <Link to={`/chat/${userId}`}>Messages</Link>
           </li>
           <li className="other-links">
-            <Link to={`/support`}>Support</Link>
+            <Link to={`/support`}>FAQ</Link>
           </li>
         </ul>
       </div>

@@ -53,12 +53,10 @@ function AddErrands(props) {
       pickupLocation: "",
       deliveryLocation: "",
       itemPrice: "",
-
       errandFee: "",
     });
     if (props.location.state) {
       setData(props.location.state.data);
-      console.log(props.location.state.data);
     }
   }, [id]);
 
@@ -153,7 +151,7 @@ function AddErrands(props) {
               }
             )
             .then((response) => {
-              console.log("2", response);
+
               if (response.data.priceChange) {
                 history.push({
                   pathname: `/stripe/payment`,
@@ -304,7 +302,7 @@ function AddErrands(props) {
           <input
             onChange={handleChange}
             required
-            type="number"
+            type="text"
             className="input"
             id="itemPrice"
             name="itemPrice"
@@ -316,7 +314,7 @@ function AddErrands(props) {
           <input
             onChange={handleChange}
             required
-            type="number"
+            type="text"
             className="input"
             id="errandFee"
             name="errandFee"

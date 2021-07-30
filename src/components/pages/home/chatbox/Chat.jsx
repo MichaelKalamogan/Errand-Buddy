@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -11,6 +11,7 @@ import Box from '@material-ui/core/Box';
 import "../../../../style/Chat.scss";
 import Conversation from './Conversation';
 import Message from './Message';
+import {io} from "socket.io-client";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -59,10 +60,49 @@ function Chat(props) {
     const [currentChat, setCurrentChat] = useState(null)
     const [messages, setMessages] = useState([])
     const [newMessage, setNewMessage] = useState("")
+    const [arrivalMessage, setArrivalMessage] = useState(null)
     const [searchField, setSearchField] = useState("")
     const [friend, setFriend] = useState("")
+    const [receiverId, setReceiverId] = useState("")
+    const socket = useRef()
+    const scrollRef = useRef()
 
     const user_name = localStorage.getItem('username')
+    
+    useEffect(()=>{
+
+        if(currentChat) {
+            if (currentChat.buyer === user_name) {
+                arrivalMessage && arrivalMessage.sender === currentChat.seller &&
+                setMessages((prev) => [...prev, arrivalMessage])
+            } else {
+                arrivalMessage && arrivalMessage.sender === currentChat.buyer &&
+                setMessages((prev) => [...prev, arrivalMessage])
+            }
+        }
+
+        
+    }, [arrivalMessage, currentChat, user_name])
+
+    useEffect(() => {
+        socket.current = io()
+        socket.current.on('getMessage', data => {
+            setArrivalMessage({
+                sender: data.senderId,
+                text: data.text,
+                createdAt: Date.now()
+
+            })
+        })
+    }, []) 
+
+    useEffect(() => {
+       socket.current.emit("addUser",user_name)
+       socket.current.on("getUsers", users=> {
+           console.log(users)
+       })
+    },[user_name]) 
+    
 
     let buyerChats = buddyConversations.filter( item =>
         { if (item.errand_desc.toLowerCase().includes(searchField.toLowerCase()) ||
@@ -76,8 +116,8 @@ function Chat(props) {
             item.buyer.toLowerCase().includes(searchField.toLowerCase()))
             return true 
         }
-    )
-
+    )   
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -87,12 +127,22 @@ function Chat(props) {
             conversationId: currentChat._id
         }
 
+        socket.current.emit('sendMessage', {
+            senderId: user_name,
+            receiverId: receiverId,
+            text: newMessage
+
+        })
+
         axios.post(`${process.env.REACT_APP_SERVER_URL}/api/chats/newmessage`, {message})
         .then(res => {
             setMessages([...messages, res.data])
             setNewMessage("")
+
         })
     }
+
+
 
     useEffect(() => {
       axios.get(`${process.env.REACT_APP_SERVER_URL}/api/chats/buyerconversations/` + user_name)
@@ -116,18 +166,31 @@ function Chat(props) {
           console.log('error')
         })
       }, [user_name])
-
+ 
     useEffect(() => {
         
-        if(currentChat) {        
-            axios.get(`${process.env.REACT_APP_SERVER_URL}/api/chats/` + currentChat._id)
+        if(currentChat) {   
+            
+            if (currentChat.buyer === user_name) {
+                setReceiverId(currentChat.seller)
+            } else {
+                setReceiverId(currentChat.buyer)
+            }
+               
+            axios.get(`${process.env.REACT_APP_SERVER_URL}/api/chats/` + currentChat?._id)
             .then(res => {
 
                 setMessages(res.data)
             })
         }
 
-    }, [currentChat])
+    }, [currentChat, user_name])
+
+    useEffect(() => {
+        console.log('testing')
+        scrollRef.current?.scrollIntoView()
+
+    }, [messages])
 
     //Material-UI for tabs
     const classes = useStyles();
@@ -207,7 +270,9 @@ function Chat(props) {
                         </div>                      
                         <div className="chatBoxTop">
                             {messages.map(msg => (
+                                <div ref={scrollRef}>
                                 <Message message={msg} own={msg.sender === user_name}/>
+                                </div>
                             ))}
                         </div>
                         <div className="chatBoxBottom">

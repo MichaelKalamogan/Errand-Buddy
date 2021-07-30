@@ -32,8 +32,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "front": "react-scripts eject",
-    "dev": "react-scripts start"
+    "dev": "react-scripts start",
+    "front": "react-scripts eject"
+
   },
   "eslintConfig": {
     "extends": [

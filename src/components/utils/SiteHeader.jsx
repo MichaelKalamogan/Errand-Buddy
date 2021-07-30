@@ -17,9 +17,9 @@ const SiteHeader = (props) => {
     setLog(!log);
     next();
   };
-  
+
   return (
-    <nav className="navbar navbar-expand-md bg-white navbar sticky-top">
+    <nav id="navber-top" className="navbar-expand-md bg-white navbar sticky-top">
       <Link to="/">
         <img
           className="logo"
@@ -38,7 +38,7 @@ const SiteHeader = (props) => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div id="nav-links" className="navbar ">
+      <div id="nav-links" className="navbar">
         <ul>
           <li className="first-link">
             <Link to="/">Home</Link>

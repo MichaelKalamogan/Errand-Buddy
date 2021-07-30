@@ -1,7 +1,14 @@
 .mainshow-container {
     width: 70vw;
     margin: 0 auto;
+
   }
+
+.accept-button {
+    width: fit-content;
+    border-radius: 5px;
+    margin-top: 10px;
+}
 
 .show-container {
 
@@ -18,7 +25,7 @@
     .show-header {
         display: flex;
         flex-direction: column;
-        margin: 20px 0;
+        margin: 20px 0 20px 0;
         border-top: 3px solid #999;
         border-bottom: 2px solid #999;
         padding:10px 0;
@@ -39,16 +46,29 @@
 
     .location-info {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         border-bottom: 2px solid #999;
         margin: 10px 0;
     }
+
+    .pickup-info, .deliver-info {
+
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .deliver-info {
+        padding-top: 20px;
+    }
+
 }
 
 .errand-guarantee {
     text-align: justify;
     border: 5px solid gray;
-    margin: 5px auto 20px auto;
+    margin: 5px auto 45px auto;
 
     div {
         display: flex;
@@ -62,8 +82,18 @@
     }
 }
 
+.dotted-lines {
+    line-height: 1px;
+    height: 1px;
+    font-size: 1px;
+    border-top: 2px dotted #999;
+    margin: 10px auto 10px auto;
+    width: 94%;
+}
+
+
 .seller-info {
-    border: 1px solid #ccc;
+    margin-top: 20px;
     border-radius: 5px;
     font-size: 1em;
 
@@ -71,6 +101,9 @@
         margin: 5px auto 5px auto;
         text-align: center;
         font-weight: bold;
+    }
+    button {
+        margin-bottom: 20px;
     }
 
     .seller-rep {
@@ -105,9 +138,20 @@
 
     .review-box{
         overflow: scroll;
-        height: 250px;
+        max-height: 300px;
         padding: 0;
-        width: 94%
+        width: 100%;
+
+        h5 {
+            font-weight: bolder;
+        }
+
+        .reviews-list {
+            width: 90%;
+            text-align: left;
+            margin: 40px auto;
+        }
+
     }
 
 }

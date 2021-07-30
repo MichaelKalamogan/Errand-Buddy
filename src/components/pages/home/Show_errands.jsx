@@ -97,49 +97,52 @@ const Show_errands = (props) =>
                 
                 <div className="row show-header">
                   <p className="summary">{props.location.state.e.items}</p>
-                  <p className="fees">${props.location.state.e.errandFee}</p>
-                  <p className="category">{props.location.state.e.category}</p>
+                  <p className="fees">Errand Fee: ${props.location.state.e.errandFee}</p>
+                  <p>Item Price: ${props.location.state.e.itemPrice}</p>
+                  <p>Description: {props.location.state.e.description}</p>
+                  <p className="category">Category: {props.location.state.e.category}</p>
+                  <p>Status: {props.location.state.e.status}</p>
                 </div>
               
                 <div className="row location-info">
                   <div className="pickup-info">
-                    <p>Pick up Location: {props.location.state.e.pickupLocation}</p>
-                    { props.location.state.e.pickupLatitude ? 
-                      <Google latitude={props.location.state.e.pickupLatitude} longtitude={props.location.state.e.pickupLongtitude}/>
-                      : <h5>Google Maps not available for postal code provided</h5>
-                    }
-                    <p>Pick up Time:{formatDate(props.location.state.e.pickupTime)}</p>
+                    <div>
+                      <p style={{marginBottom:"30px"}}>
+                        <h3 style={{fontWeight:"bold"}}>Pick up Location: </h3> 
+                        <h5>{props.location.state.e.pickupLocation}</h5>
+                      </p>
+                      <p>
+                        <h3 style={{fontWeight:"bold"}}>Pick up Time: </h3>
+                        <h5>{formatDate(props.location.state.e.pickupTime)}</h5>
+                        </p>
+                    </div>
+                    <div>
+                      { props.location.state.e.pickupLatitude ? 
+                        <Google latitude={props.location.state.e.pickupLatitude} longtitude={props.location.state.e.pickupLongtitude}/>
+                        : <h5>Google Maps not available for postal code provided</h5>
+                      }
+                    </div>
                   </div>
 
                   <div className="deliver-info">
-                    <p>Delivery Location: {props.location.state.e.deliveryLocation}</p>
-                    { props.location.state.e.deliveryLatitude ? 
-                      <Google latitude={props.location.state.e.deliveryLatitude} longtitude={props.location.state.e.deliveryLongtitude}/>
-                      : <h5>Google Maps not available for postal code provided</h5>
-                    }     
-                    <p>Deliver By:{formatDate(props.location.state.e.deliveryTime)}</p>
+                    <div>
+                      <p>
+                        <h3 style={{fontWeight:"bold"}}>Delivery Location: </h3> 
+                        <h5>{props.location.state.e.deliveryLocation}</h5>
+                      </p>
+                      <p>
+                        <h3 style={{fontWeight:"bold"}}>Deliver By:</h3>
+                        <h5>{formatDate(props.location.state.e.deliveryTime)}</h5>
+                      </p>
+                    </div>
+                    <div>
+                      { props.location.state.e.deliveryLatitude ? 
+                        <Google latitude={props.location.state.e.deliveryLatitude} longtitude={props.location.state.e.deliveryLongtitude}/>
+                        : <h5>Google Maps not available for postal code provided</h5>
+                      }     
+                    </div>
                   </div>
-
-                </div>
-                                              
-                <p>Item Price: ${props.location.state.e.itemPrice}</p>
-                <p>Description: {props.location.state.e.description}</p>
-                <p>Status: {props.location.state.e.status}</p>
-                { props.location.state.e.status === 'Completed' ? null : 
-                  <button className="btn btn-outline-primary" mt-2 mb-2>
-                  {isAuthenticated() &&  (
-                      <button onClick= {handleSubmit}> Accept
-                  </button>
-                  )}
-                  {!isAuthenticated() && (
-                    <Link to={`/login`} className="navbar-item" href="">
-                      Login to accept
-                    </Link>
-                  )}
-                </button>
-                
-                }
-                
+                </div>              
                 
               </div>
 
@@ -156,6 +159,8 @@ const Show_errands = (props) =>
                     Any disputes can be raised immediately.</h6>
                   </div>
                 </div>
+
+                <div className="dotted-lines"></div>
 
                 <div className="seller-info">
                   <h4>Meet The Seller</h4>
@@ -188,7 +193,25 @@ const Show_errands = (props) =>
                 
                 </div>
 
+                <div className="dotted-lines"></div>         
+              { props.location.state.e.status === 'Completed' ? null : 
+                  <button className="btn btn-outline-primary accept-button" mt-2 mb-2>
+                  {isAuthenticated() &&  (
+                      <button onClick= {handleSubmit}> Accept
+                  </button>
+                  )}
+                  {!isAuthenticated() && (
+                    <Link to={`/login`} className="navbar-item" href="">
+                      Login to accept
+                    </Link>
+                  )}
+                </button>
+                
+                }
+
               </div>
+
+              
             </div>
             
 

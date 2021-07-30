@@ -1,11 +1,11 @@
 import React from 'react';
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
+import { GoogleMap, useLoadScript, Marker} from '@react-google-maps/api'
 
 
 const libraries = ["places"]
 const mapContainerStyle = {
-    width: '300px',
-    height: '200px'
+    width: '400px',
+    height: '400px'
 }
 
 function Google_map({latitude, longtitude}) {

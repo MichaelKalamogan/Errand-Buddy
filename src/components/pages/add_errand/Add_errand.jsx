@@ -177,177 +177,173 @@ function AddErrands(props) {
 
   return (
 
-    <div
-      className="add-row"
-      style={{
-        backgroundImage: `url(${
-          process.env.PUBLIC_URL + "/create-background.jpg"
-        })`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="add-container">
-        <form method="POST" action="" />
-        <h1>{!props.location.state ? "Create an Errand" : "Modify Errand"}</h1>
-        <select
-          className="input mb-3"
-          aria-label=".form-select-lg example"
-          name="category"
-          value={data.category}
-          onChange={handleChange}
-          required
-        >
-          <option defaultValue> Select Categories</option>
-          <option value="Grocery">Grocery Pick Up</option>
-          <option value="Queue">Queue</option>
-          <option value="Pet-Sitting">Pet Sitting Services</option>
-          <option value="Nanny Services">Nanny Services</option>
-          <option value="Housekeeping">Housekeeping</option>
-          <option value="Others">Others</option>
-        </select>
-
-        <div className="outer mb-3">
-          
-          <input
+    <div className="add-row">
+      <div className="add-errand-picture">
+      <img src={process.env.PUBLIC_URL + "/personal-assistant-sitting.jpg"} alt="sitting"/>
+      </div>
+      <div className="add-main-container">
+        <div className="add-container">
+          <form method="POST" action="" />
+          <h1>{!props.location.state ? "Create an Errand" : "Modify Errand"}</h1>
+          <select
+            className="input mb-3"
+            aria-label=".form-select-lg example"
+            name="category"
+            value={data.category}
             onChange={handleChange}
             required
-            type="text"
-            className="input  "
-            id="items"
-            name="items"
-            value={data.items}
-            placeholder="Summary of Errand"
-            
-          />
-        </div>
-
-      <div className="outer mb-3">
-        <label for="image" class="btn">Upload an Image of the Item/Errand</label>
-          <input
-            onChange={uploadImage}
-            required
-            className="input"
-            id="image"
-            type="file"
-            name="newImage"
-            placeholder="Upload an image of the item/errand"
-          />
-        </div>
-        <div className="outer textbox mb-3">
-          <textarea
-            rows="5"
-            onChange={handleChange}
-            required
-            type="text"
-            className="input"
-            id="description"
-            name="description"
-            placeholder="Description of Errand"
-            value={data.description}
-          />
-        </div>
-
-        <div className="outer mb-3">
-          <input
-            onChange={handleChange}
-            required
-            type="text"
-            className="input"
-            id="pickupLocation"
-            name="pickupLocation"
-            placeholder="Postal code of errand/pickup location"
-            value={data.pickupLocation}
-          />
-        </div>
-
-        <div className="outer mb-3">
-          <input
-            onChange={handleChange}
-            required
-            type="text"
-            className="input"
-            id="deliveryLocation"
-            name="deliveryLocation"
-            placeholder="Postal code of delivery/ending location"
-            value={data.deliveryLocation}
-          />
-        </div>
-        <div className="outer date-inputs mb-3">
-          <div className="inputDate">
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <DateTimePicker
-                label="Start/Pick Up Time"
-                id="pickupTime"
-                name="pickupTime"
-                value={pickupDate}
-                onChange={(date) => setPickupDate(date)}
-              />
-            </MuiPickersUtilsProvider>
-          </div>
-          <div className="inputDate">
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <DateTimePicker
-                label="End/Delivery Time"
-                id="deliveryTime"
-                name="deliveryTime"
-                value={deliveryDate}
-                onChange={(date) => setDeliveryDate(date)}
-              />
-            </MuiPickersUtilsProvider>
-          </div>
-        </div>
-
-        <div className="outer moneyDisplay mb-3">
-          <input
-            onChange={handleChange}
-            required
-            type="text"
-            className="input"
-            id="itemPrice"
-            name="itemPrice"
-            placeholder="Price of Items being purchased (if applicable)"
-            value={data.itemPrice}
-          />
-        </div>
-        <div className="outer moneyDisplay mb-3">
-          <input
-            onChange={handleChange}
-            required
-            type="text"
-            className="input"
-            id="errandFee"
-            name="errandFee"
-            placeholder="Amount you are willing to pay for the errand"
-            value={data.errandFee}
-          />
-        </div>
-
-        <br />
-
-        {isLoading ? (
-          <button onClick={handleClick} className="inputButton" disabled>
-            {" "}
-            {!props.location.state ? "Add Errand" : "Modify Details"}
-            <i class="fas fa-spinner fa-spin"></i>
-          </button>
-        ) : (
-          <button onClick={handleClick} className="inputButton">
-            {" "}
-            {!props.location.state ? "Add Errand" : "Modify Details"}
-          </button>
-        )}
-
-        {id && (
-          <button
-            onClick={() => {
-              history.goBack();
-            }}
-            className="inputButton"
           >
-            Back to Previous
-          </button>
-        )}
+            <option defaultValue> Select Categories</option>
+            <option value="Grocery">Grocery Pick Up</option>
+            <option value="Queue">Queue</option>
+            <option value="Pet-Sitting">Pet Sitting Services</option>
+            <option value="Nanny Services">Nanny Services</option>
+            <option value="Housekeeping">Housekeeping</option>
+            <option value="Others">Others</option>
+          </select>
+
+          <div className="outer mb-3">
+            
+            <input
+              onChange={handleChange}
+              required
+              type="text"
+              className="input  "
+              id="items"
+              name="items"
+              value={data.items}
+              placeholder="Summary of Errand"
+              
+            />
+          </div>
+
+        <div className="outer mb-3">
+          <label for="image" class="btn">Upload an Image of the Item/Errand</label>
+            <input
+              onChange={uploadImage}
+              required
+              className="input"
+              id="image"
+              type="file"
+              name="newImage"
+              placeholder="Upload an image of the item/errand"
+            />
+          </div>
+          <div className="outer textbox mb-3">
+            <textarea
+              rows="5"
+              onChange={handleChange}
+              required
+              type="text"
+              className="input"
+              id="description"
+              name="description"
+              placeholder="Description of Errand"
+              value={data.description}
+            />
+          </div>
+
+          <div className="outer mb-3">
+            <input
+              onChange={handleChange}
+              required
+              type="text"
+              className="input"
+              id="pickupLocation"
+              name="pickupLocation"
+              placeholder="Postal code of errand/pickup location"
+              value={data.pickupLocation}
+            />
+          </div>
+
+          <div className="outer mb-3">
+            <input
+              onChange={handleChange}
+              required
+              type="text"
+              className="input"
+              id="deliveryLocation"
+              name="deliveryLocation"
+              placeholder="Postal code of delivery/ending location"
+              value={data.deliveryLocation}
+            />
+          </div>
+          <div className="outer date-inputs mb-3">
+            <div className="inputDate">
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <DateTimePicker
+                  label="Start/Pick Up Time"
+                  id="pickupTime"
+                  name="pickupTime"
+                  value={pickupDate}
+                  onChange={(date) => setPickupDate(date)}
+                />
+              </MuiPickersUtilsProvider>
+            </div>
+            <div className="inputDate">
+              <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                <DateTimePicker
+                  label="End/Delivery Time"
+                  id="deliveryTime"
+                  name="deliveryTime"
+                  value={deliveryDate}
+                  onChange={(date) => setDeliveryDate(date)}
+                />
+              </MuiPickersUtilsProvider>
+            </div>
+          </div>
+
+          <div className="outer moneyDisplay mb-3">
+            <input
+              onChange={handleChange}
+              required
+              type="text"
+              className="input"
+              id="itemPrice"
+              name="itemPrice"
+              placeholder="Price of Items being purchased (if applicable)"
+              value={data.itemPrice}
+            />
+          </div>
+          <div className="outer moneyDisplay mb-3">
+            <input
+              onChange={handleChange}
+              required
+              type="text"
+              className="input"
+              id="errandFee"
+              name="errandFee"
+              placeholder="Amount you are willing to pay for the errand"
+              value={data.errandFee}
+            />
+          </div>
+
+          <br />
+
+          {isLoading ? (
+            <button onClick={handleClick} className="inputButton" disabled>
+              {" "}
+              {!props.location.state ? "Add Errand" : "Modify Details"}
+              <i class="fas fa-spinner fa-spin"></i>
+            </button>
+          ) : (
+            <button onClick={handleClick} className="inputButton">
+              {" "}
+              {!props.location.state ? "Add Errand" : "Modify Details"}
+            </button>
+          )}
+
+          {id && (
+            <button
+              onClick={() => {
+                history.goBack();
+              }}
+              className="inputButton"
+            >
+              Back to Previous
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

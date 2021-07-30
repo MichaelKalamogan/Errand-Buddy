@@ -1,0 +1,31 @@
+.FAQ-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+
+    .FAQ-picture {
+        margin-top: 30px;
+        width: 40%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .faq {
+        margin-top: 30px;
+        width:50%;
+
+        text-align: justify;
+
+        h3, h6 {
+            margin-top: 10px;
+        }
+
+        p {
+            width: 90%;
+            margin-bottom: 25px;
+        }
+    }
+}

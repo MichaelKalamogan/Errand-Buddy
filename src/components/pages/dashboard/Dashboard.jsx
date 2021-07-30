@@ -142,8 +142,9 @@ export default function Dashboard() {
     )}
 
   const handleDelete=(e)=> {
-
-   axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`,{}, {
+  
+    console.log(token)
+   axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`,{
      headers: {
        "x-auth-token": token,
        "content-type": "application/json"
@@ -217,7 +218,9 @@ export default function Dashboard() {
           ))              
             :         
             (
-          <div>No Completed Jobs Yet</div>
+          <div >
+            <h3 className="dashboard-comments">No Completed Jobs Yet</h3>
+          </div>
           )      
         } 
   
@@ -249,7 +252,9 @@ export default function Dashboard() {
           ))              
             :         
             (
-          <div>No Outstanding Jobs</div>
+          <div>
+            <h3 className="dashboard-comments">No Outstanding Jobs</h3>
+          </div>
           )      
         }            
       </div>
@@ -281,7 +286,7 @@ export default function Dashboard() {
           ))              
             :         
             (
-          <div>No Outstanding Jobs</div>
+          <div className="dashboard-comments">No Outstanding Jobs</div>
           )      
         }            
       </div>
@@ -314,7 +319,9 @@ export default function Dashboard() {
           ))              
             :         
             (
-          <div>No Outstanding Jobs</div>
+          <div>
+            <h3 className="dashboard-comments">No Outstanding Jobs</h3>
+          </div>
           )      
         }            
       </div>
@@ -350,7 +357,7 @@ export default function Dashboard() {
               :         
               (
             <div>
-              <h3>No Errands Completed yet. Accept a job and earn some extra $$$.</h3>
+              <h3 className="dashboard-comments">No Errands Completed yet. Accept a job and earn some extra $$$.</h3>
             </div>
             )      
           }  
@@ -361,7 +368,7 @@ export default function Dashboard() {
 
     const errandsLiked = () => {
       return (
-        <div className="dashboard-card mb-5">
+        <div className="dashboard-card mb-3">
           
           {
             liked.length>0 ? 
@@ -382,7 +389,7 @@ export default function Dashboard() {
               :         
               (
             <div>
-              <h3>No Errands Liked yet</h3>
+              <h3 className="dashboard-comments">No Errands Liked yet</h3>
             </div>
             )      
           }  
@@ -394,7 +401,7 @@ export default function Dashboard() {
 
   return (
 
-    <div className="dashboard-container" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + "/dashboard-background.jpg"})`,  backgroundRepeat: "no-repeat", backgroundSize:"cover"}} >
+    <div className="dashboard-container" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + "/create-background.jpg"})`,  backgroundRepeat: "no-repeat", backgroundSize:"cover"}} >
       <div className="header-tabs">
         <div>
           <input onClick={changeUserTab} defaultChecked value="option1" id="one" name="tabs" type="radio" />

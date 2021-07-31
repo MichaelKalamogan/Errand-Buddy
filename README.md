@@ -28,8 +28,7 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 * Stripe
 * Google map
 
-![Image of homepage] (https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/main/images/homepage-1.jpg "homepage") ![Image of homepage]
-
+![Image of homepage] (https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/main/images/homepage-1.jpg "homepage") 
 
 ## App Features
 

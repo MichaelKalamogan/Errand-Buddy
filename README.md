@@ -85,7 +85,7 @@ Will appreciate any suggestions and improvements to the code, layout, user inter
 ## Area of Improvements
 
 * Components in the dashboard page could further broken into several components
-* The styling could be improved more
+* The styling could be improved further
 * Web app to be responsive e.g. mobile, tablet etc
 
 ## Credits

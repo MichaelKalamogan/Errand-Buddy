@@ -1,3 +1,4 @@
+
 # Errand Buddy - Helping With Your Errands Daily
 
 The intent of the site is to provide an online p2p marketplace for users to errands such as dog walks, pet sitting, picking up groceries, queuing for the latest phone or sneaker launch, etc. Users can list the errands they wish to outsource for a pre-determined fee and, other users (whom we call the buddy) can accept these errands.
@@ -28,7 +29,8 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 * Stripe
 * Google map
 
-![Image of homepage] (https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/main/images/homepage-1.jpg) 
+![homepage-1](https://user-images.githubusercontent.com/79918648/127741343-c367b6a6-3783-44ff-9dd1-5604bbc84a1b.jpg)![homepage-2](https://user-images.githubusercontent.com/79918648/127741370-9981789f-09ce-40e5-8c1c-6229f6b382ce.jpg)
+
 
 ## App Features
 

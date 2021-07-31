@@ -77,7 +77,7 @@ export default function Dashboard() {
 
     axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/retrieveLikes`)
     .then(response => {
-      console.log(response.data)
+
       setliked(response.data)
     })
   }, ([]))
@@ -143,7 +143,6 @@ export default function Dashboard() {
 
   const handleDelete=(e)=> {
   
-    console.log(token)
    axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/errands/${ e._id }/delete`,{
      headers: {
        "x-auth-token": token,

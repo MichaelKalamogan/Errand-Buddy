@@ -188,7 +188,7 @@ function Chat(props) {
     }, [currentChat, user_name])
 
     useEffect(() => {
-        console.log('testing')
+
         scrollRef.current?.scrollIntoView()
 
     }, [messages])

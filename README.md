@@ -28,7 +28,7 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 * Stripe
 * Google map
 
-![Image of homepage] (https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "homepage") (another image)
+![Image of homepage] (https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/main/images/homepage-1.jpg "homepage") ![Image of homepage]
 
 
 ## App Features
@@ -66,28 +66,6 @@ Will appreciate any suggestions and improvements to the code, layout, user inter
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Wireframe3.jpeg width="500" height="400">
 
 
-# Actual App
-
-### Home Page
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Homepage.jpg width="600" height="400">
-
-### Login Page
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Login.png width="600" height="400">
-
-### Show Page
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Showcard%20w%20login.png width="600" height="400">
-
-### Dashboard
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Buddy%20in%20progress.png width="600" height="400">
-
-### Create Errand
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Create%20errand.png width="600" height="400">
-
-### Modify Errand
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Modify%20errand.png width="600" height="400">
-
-### Edit & Delete Errand
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Edit%20and%20delete.png width="600" height="400">
 
 ### Ratings & Review
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Ratings%20and%20review.png width="600" height="400">

@@ -32,6 +32,7 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 ![homepage-1](https://user-images.githubusercontent.com/79918648/127741343-c367b6a6-3783-44ff-9dd1-5604bbc84a1b.jpg)
 
 
+#####List of Errands at the homepage
 ![homepage-2](https://user-images.githubusercontent.com/79918648/127741370-9981789f-09ce-40e5-8c1c-6229f6b382ce.jpg)
 
 

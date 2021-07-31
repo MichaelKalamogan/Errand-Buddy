@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 import "../../../../style/Chat.scss";
 import Conversation from './Conversation';
 import Message from './Message';
-import {io} from "socket.io-client";
+import socketIOClient from "socket.io-client";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -85,7 +85,7 @@ function Chat(props) {
     }, [arrivalMessage, currentChat, user_name])
 
     useEffect(() => {
-        socket.current = io()
+        socket.current = socketIOClient(process.env.REACT_APP_SOCKET_URL)
         socket.current.on('getMessage', data => {
             setArrivalMessage({
                 sender: data.senderId,

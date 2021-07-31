@@ -29,16 +29,28 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 * Stripe
 * Google map
 
-![homepage-1](https://user-images.githubusercontent.com/79918648/127741343-c367b6a6-3783-44ff-9dd1-5604bbc84a1b.jpg)![homepage-2](https://user-images.githubusercontent.com/79918648/127741370-9981789f-09ce-40e5-8c1c-6229f6b382ce.jpg)
+![homepage-1](https://user-images.githubusercontent.com/79918648/127741343-c367b6a6-3783-44ff-9dd1-5604bbc84a1b.jpg)
+
+
+![homepage-2](https://user-images.githubusercontent.com/79918648/127741370-9981789f-09ce-40e5-8c1c-6229f6b382ce.jpg)
 
 
 ## App Features
 
 *  New User can see lists of errands posted at the Homepage
 * Clicking on a picture on the homepage, will go to the individual Errand's page, which will have a full description of the errand, location maps as well as the seller's ratings and reviews from past transactions.
+![show](https://user-images.githubusercontent.com/79918648/127741411-abf05d77-4f6c-4356-b1ae-797af26e2f02.jpg)
+
+
+
 *  After successful login/register , User can accept these errands. Users can also like the errands ( the Hearts at the bottom of each card ) which they want to shortlist or actually like. When liked, it will be under the user's likes and it will be reflected in his dashboard so that he can refer to his likes to go back to any errands that he previously liked. 
+![dashboard](https://user-images.githubusercontent.com/79918648/127741430-11ce0c9b-22af-4a59-8252-a11620c57bc3.jpg)
+
+
 * They can also have a chat with the seller, in real-time, to ask more details about the errand. The chat utilises socket.io to pass the messages instantly and mongoDB to store the conversations and messages
-![image of chat]
+![chat](https://user-images.githubusercontent.com/79918648/127741421-0d101a46-385a-49eb-80b5-fad03fe2c526.jpg)
+
+
 * User can also created their own errands for acceptance. When creating these errands, they will have to pay upfront the cost of the errand as well as the actual costs of the items (if any). The payment uses stripe gateway and upon successful payment, it will be reflected in their wallet. These errands will also be reflected in their dashboard for easy reference. 
 ![image of stripe payment and wallet]
 
@@ -65,11 +77,6 @@ Will appreciate any suggestions and improvements to the code, layout, user inter
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Wireframe1.jpeg width="500" height="400">
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Wireframe2.jpeg width="500" height="400">
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Wireframe3.jpeg width="500" height="400">
-
-
-
-### Ratings & Review
-<img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Ratings%20and%20review.png width="600" height="400">
 
 
 ## Restful Routes

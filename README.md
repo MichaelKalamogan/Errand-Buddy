@@ -54,7 +54,8 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 
 
 * User can also created their own errands for acceptance. When creating these errands, they will have to pay upfront the cost of the errand as well as the actual costs of the items (if any). The payment uses stripe gateway and upon successful payment, it will be reflected in their wallet. These errands will also be reflected in their dashboard for easy reference. 
-![image of stripe payment and wallet]
+![Walk-dog](https://user-images.githubusercontent.com/79918648/127741805-fc76e5ab-bfd2-4de6-85bd-22e78c0b42dd.jpg)
+![stripe](https://user-images.githubusercontent.com/79918648/127741809-1db72f8c-6003-4de2-88fc-43085eaf7ff6.jpg)
 
 *  Upon completion of errand, the amount of the whole errand is transferred from the seller's wallet to the buddy's wallet. An email is sent to both user and buddy. This uses nodemailer. 
 * User can then submit review and ratings of the other user which will be reflected in user's dashboard.
@@ -80,44 +81,14 @@ Will appreciate any suggestions and improvements to the code, layout, user inter
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Wireframe2.jpeg width="500" height="400">
 <img src=https://github.com/MichaelKalamogan/Errand-Buddy-Frontend/blob/yaqin10/errand-buddy-fe/public/Readme/Wireframe3.jpeg width="500" height="400">
 
-
-## Restful Routes
-
-| No      | Route    |   Url  | HTTP Verb   |   Description  |
-| ------- | -------- | ------ | ----------- | -------------  | 
-|  1      | Index    |   /    |   Get       |    Homepage    |
-
-
-## User Routes
- 
-| No      | Route    | Url                    | HTTP Verb   | Description                    |
-| ------- | -------- | --------------------   | ---------   | ---------------------------    | 
-| 1       | Login    | /api/users/login       | Post        | Login to accept/create errands |
-| 2       | Register | /api/users/register    | Post        | Register new user              |
-| 3       | Dashboard| /api/users/dashboard   | Get         | User's dashboard with job history, details and wallet balance |
-| 4       | Create   |/api/users/create-errand| Post        | Create errands with form data  |
-| 5       | Edit     |/api/users/forgot-password| Post      | Form to submit reset password  |
-| 6       | Reset Password| api/users/reset-password/:id/:token| Get | Page to reset password |
-| 7       | Submit New Password | /api/users/reset-password/submit| Patch | Submit new password|
-
-
-## Errand Routes
-
-| No      | Route    | Url                    | HTTP Verb   | Description                    |
-| ------- | -------- | --------------------   | ---------   | ---------------------------    | 
-| 1       | Show     | /api/errands/show/:id     | Get       | Direct to show full details of the errand
-| 2       | Accept   | /api/errands/:id/accepted | Post      | Update database which buddy has accepted the errand |
-| 3       | Completed | /api/errands/:id/completed| Post     | Update database that the buddy has completed the errand |
-| 4       | Review    | /api/errands/:id/completed/review| Post |  For buddy to post review and rating on the job |
-
-
-
-
 ## Area of Improvements
 
 * Components in the dashboard page could further broken into several components
 * The styling could be improved more
 * Web app to be responsive e.g. mobile, tablet etc
+
+##Credits
+Images were taken from: https://www.dreamstime.com/
 
 
 

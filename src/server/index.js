@@ -5,16 +5,9 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const port = process.env.PORT || 8080;
 
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, 'index.html'));
-});
-
 app.use(express.static(path.join(__dirname, '../../build')));
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
-
+app.get('/', (req, res, next) => res.sendFile(__dirname + './index.html'));
 
 let users = []
 

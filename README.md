@@ -48,6 +48,7 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 ![dashboard](https://user-images.githubusercontent.com/79918648/127741430-11ce0c9b-22af-4a59-8252-a11620c57bc3.jpg)
 
 
+
 * They can also have a chat with the seller, in real-time, to ask more details about the errand. The chat utilises socket.io to pass the messages instantly and mongoDB to store the conversations and messages
 ![chat](https://user-images.githubusercontent.com/79918648/127741421-0d101a46-385a-49eb-80b5-fad03fe2c526.jpg)
 

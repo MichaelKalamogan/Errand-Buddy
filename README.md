@@ -7,6 +7,7 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 * Mern Stack App
 * Can be accessed at the following url: https://thanks-buddy.herokuapp.com/
 * Backend uses MongoDB, mongoose and Express. Can be accessed at the following url: https://github.com/MichaelKalamogan/Errand-Buddy-Backend
+* A separate server was also created to host the socket.io server for the chat at: https://errandbuddysocket.herokuapp.com/
 
 
 ## Tech Stack / Libraries

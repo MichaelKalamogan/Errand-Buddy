@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 import "../../../../style/Chat.scss";
 import Conversation from './Conversation';
 import Message from './Message';
-// import {io} from "socket.io-client";
+import {io} from "socket.io-client";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -69,39 +69,39 @@ function Chat(props) {
 
     const user_name = localStorage.getItem('username')
     
-    // useEffect(()=>{
+    useEffect(()=>{
 
-    //     if(currentChat) {
-    //         if (currentChat.buyer === user_name) {
-    //             arrivalMessage && arrivalMessage.sender === currentChat.seller &&
-    //             setMessages((prev) => [...prev, arrivalMessage])
-    //         } else {
-    //             arrivalMessage && arrivalMessage.sender === currentChat.buyer &&
-    //             setMessages((prev) => [...prev, arrivalMessage])
-    //         }
-    //     }
+        if(currentChat) {
+            if (currentChat.buyer === user_name) {
+                arrivalMessage && arrivalMessage.sender === currentChat.seller &&
+                setMessages((prev) => [...prev, arrivalMessage])
+            } else {
+                arrivalMessage && arrivalMessage.sender === currentChat.buyer &&
+                setMessages((prev) => [...prev, arrivalMessage])
+            }
+        }
 
         
-    // }, [arrivalMessage, currentChat, user_name])
+    }, [arrivalMessage, currentChat, user_name])
 
-    // useEffect(() => {
-    //     socket.current = io()
-    //     socket.current.on('getMessage', data => {
-    //         setArrivalMessage({
-    //             sender: data.senderId,
-    //             text: data.text,
-    //             createdAt: Date.now()
+    useEffect(() => {
+        socket.current = io()
+        socket.current.on('getMessage', data => {
+            setArrivalMessage({
+                sender: data.senderId,
+                text: data.text,
+                createdAt: Date.now()
 
-    //         })
-    //     })
-    // }, []) 
+            })
+        })
+    }, []) 
 
-    // useEffect(() => {
-    //    socket.current.emit("addUser",user_name)
-    //    socket.current.on("getUsers", users=> {
-    //        console.log(users)
-    //    })
-    // },[user_name]) 
+    useEffect(() => {
+       socket.current.emit("addUser",user_name)
+       socket.current.on("getUsers", users=> {
+           console.log(users)
+       })
+    },[user_name]) 
     
 
     let buyerChats = buddyConversations.filter( item =>

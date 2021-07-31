@@ -87,7 +87,7 @@ Will appreciate any suggestions and improvements to the code, layout, user inter
 * The styling could be improved more
 * Web app to be responsive e.g. mobile, tablet etc
 
-##Credits
+## Credits
 Images were taken from: https://www.dreamstime.com/
 
 

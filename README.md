@@ -5,9 +5,12 @@ The intent of the site is to provide an online p2p marketplace for users to erra
 
 * Built as part of a project for a software engineering course.
 * Mern Stack App
-* Can be accessed at the following url: https://thanks-buddy.herokuapp.com/
+### Can be accessed at the following url: https://www.errand-buddy.com/
+* Hosted on AWS using Amplify
+* Please give it a minute or so to load the backend as the backend is hosted on heroku which will take sometime to start the server.
 * Backend uses MongoDB, mongoose and Express. Can be accessed at the following url: https://github.com/MichaelKalamogan/Errand-Buddy-Backend
 * A separate server was also created to host the socket.io server for the chat at: https://errandbuddysocket.herokuapp.com/, github: https://github.com/MichaelKalamogan/Errand-Buddy-Socket
+* All 3 repos must be running for the app to work locally.
 
 
 ## Tech Stack / Libraries
